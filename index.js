@@ -22,7 +22,7 @@ app.get("/api", async (req, res) => {
       args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
       defaultViewport: chrome.defaultViewport,
       executablePath: await chrome.executablePath,
-      headless: true,
+      headless: false,
       ignoreHTTPSErrors: true,
     };
   }
@@ -31,7 +31,7 @@ app.get("/api", async (req, res) => {
     let browser = await puppeteer.launch(options);
 
     let page = await browser.newPage();
-    await page.goto("https://www.google.com");
+    await page.goto("https://vcloud.lol/2syw1ybxwaaxlkk");
     res.send(await page.title());
   } catch (err) {
     console.error(err);
