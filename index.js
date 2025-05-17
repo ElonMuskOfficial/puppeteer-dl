@@ -10,6 +10,10 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   puppeteer = require("puppeteer");
 }
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 app.get("/api", async (req, res) => {
   let options = {};
 
@@ -36,7 +40,7 @@ app.get("/api", async (req, res) => {
 });
 
 app.listen(process.env.PORT || 3000, () => {
-  console.log("Server started");
+  console.log("Server started: http:localhost:3000");
 });
 
 module.exports = app;
